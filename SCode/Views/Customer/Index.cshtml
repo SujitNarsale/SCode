@@ -1,0 +1,90 @@
+﻿@model IEnumerable<SCode.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<style>
+    th {
+        text-align: center;
+        background-color: rgb(108,117,125);
+        color: aliceblue;
+        font-style: italic
+    }
+</style>
+
+
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <table class="table table-bordered table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Birthdate</th>
+                    <th>Password</th>
+                    <th>Date</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr class="Serachbar">
+
+                        <td>@item.Customer_Id</td>
+                        <td>@item.Customer_FirstName</td>
+                        <td>@item.Customer_LastName</td>
+                        <td>@item.Customer_Address</td>
+                        <td>@item.Customer_Mobile</td>
+                        <td>@item.Customer_Email</td>
+                        <td>@(item.Customer_Birthdate.HasValue ? item.Customer_Birthdate.Value.ToString("d") : "N/A")</td>
+                        <td>@item.Customer_Password</td>
+                        <td>@(item.Created_On.HasValue ? item.Created_On.Value.ToString("dd/MM/yyyy h:mm tt") : "N/A")</td>
+                        <td>
+                            <a href="@Url.Action("Delete","Customer" , new { @id = item.Customer_Id})" onclick="return confirm('Are sure you want to Delete?')"><span class="glyphicon glyphicon-trash "></span></a> &nbsp;
+                            <a href="@Url.Action("Edit","Customer" , new {@id =item.Customer_Id})"><span class="glyphicon glyphicon-edit"></span></a>
+                        </td>
+                    </tr>
+
+
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#search").keyup(function () {
+            var serachText = $("#search").val().toLowerCase();
+            $(".Serachbar").each(function () {
+                if (!Contains($(this).text().toLowerCase(), serachText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            })
+        });
+
+    })
+</script>

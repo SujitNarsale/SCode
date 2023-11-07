@@ -1,0 +1,103 @@
+﻿@model SCode.Models.Customer
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+
+
+<style>
+    #bar {
+        display: none
+    }
+    .panel-title{
+        text-align:center
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Customer</h3>
+            </div>
+            <form action="/Customer/Create" method="post" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">First Name</label>
+                                @Html.TextBoxFor(e => e.Customer_FirstName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Customer_FirstName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Last Name</label>
+                                @Html.TextBoxFor(e => e.Customer_LastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Customer_LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Address</label>
+                                @Html.TextBoxFor(e => e.Customer_Address, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Customer_Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Mobile</label>
+                                @Html.TextBoxFor(e => e.Customer_Mobile, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Customer_Mobile, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                @Html.TextBoxFor(e => e.Customer_Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Customer_Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label for="">Birthdate</label>
+                                @Html.TextBoxFor(e => e.Customer_Birthdate, new { @class = "form-control", Type = "date" })
+                                @Html.ValidationMessageFor(e => e.Customer_Birthdate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                @Html.TextBoxFor(e => e.Customer_Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Customer_Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label for="">Date</label>  
+                                @Html.TextBoxFor(e => e.Created_On, "{0:dd/MM/yyyy h:mm tt}", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(e => e.Created_On, "",new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <center>
+                            <input type="submit" value="Submit" class="btn btn-danger" />
+                        </center>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

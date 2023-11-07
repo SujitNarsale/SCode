@@ -1,0 +1,105 @@
+﻿@model SCode.Models.Customer
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+
+
+<style>
+    #bar {
+        display: none
+    }
+
+    .panel-title {
+        text-align: center
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-lg-10">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Update Customer</h3>
+            </div>
+            <form action="/Customer/Edit" method="post" autocomplete="off" enctype="multipart/form-data">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Customer Id</label>
+                                @Html.TextBoxFor(e => e.Customer_Id, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">First Name</label>
+                                @Html.TextBoxFor(e => e.Customer_FirstName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Last Name</label>
+                                @Html.TextBoxFor(e => e.Customer_LastName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Address</label>
+                                @Html.TextBoxFor(e => e.Customer_Address, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Mobile</label>
+                                @Html.TextBoxFor(e => e.Customer_Mobile, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                @Html.TextBoxFor(e => e.Customer_Email, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Birthdate</label>
+                                @Html.TextBoxFor(e => e.Customer_Birthdate, "{0:dd/MM/yyyy}", new { @class = "form-control"})
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                @Html.TextBoxFor(e => e.Customer_Password, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <center> <label for="">Date</label></center>
+                                @Html.TextBoxFor(e => e.Created_On, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <center>
+                            <input type="submit" value="Update" class="btn btn-danger" />
+                        </center>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+

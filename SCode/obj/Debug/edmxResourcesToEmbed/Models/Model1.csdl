@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AssignmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_Id" />
+    </Key>
+    <Property Name="Customer_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Customer_Birthdate" Type="DateTime" Precision="0" />
+    <Property Name="Customer_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Created_On" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="AssignmentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+  </EntityContainer>
+</Schema>
